@@ -1,48 +1,40 @@
-import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./index.css";
+import { AppShell } from "./components/layout/AppShell";
+import { Button } from "./components/ui/button";
 
 // PUBLIC_INTERFACE
 function App() {
-  const [theme, setTheme] = useState('light');
-
-  // Effect to apply theme to document element
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-  }, [theme]);
-
-  // PUBLIC_INTERFACE
-  const toggleTheme = () => {
-    setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
-  };
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <button 
-          className="theme-toggle" 
-          onClick={toggleTheme}
-          aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
-        >
-          {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
-        </button>
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p>
-          Current theme: <strong>{theme}</strong>
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppShell>
+      <div className="grid gap-6">
+        <section className="rounded-lg border border-border bg-card p-6 shadow-sm">
+          <h1 className="text-2xl font-semibold tracking-tight">Welcome</h1>
+          <p className="mt-2 text-slate-600">
+            TailwindCSS and UI primitives are configured with the brand palette.
+          </p>
+          <div className="mt-4 flex gap-3">
+            <Button>Primary</Button>
+            <Button variant="secondary">Secondary</Button>
+            <Button variant="outline">Outline</Button>
+            <Button variant="ghost">Ghost</Button>
+            <Button variant="link" asChild>
+              <a href="https://react.dev" target="_blank" rel="noreferrer">React Docs</a>
+            </Button>
+          </div>
+        </section>
+
+        <section className="rounded-lg border border-border bg-card p-6">
+          <h2 className="text-xl font-semibold">Next steps</h2>
+          <ul className="mt-2 list-disc pl-5 text-slate-600">
+            <li>Add stepper navigation and wizard pages.</li>
+            <li>Integrate Recharts demo with mock data.</li>
+            <li>Wire framer-motion for subtle transitions.</li>
+            <li>Build calibration, events, and insights screens.</li>
+          </ul>
+        </section>
+      </div>
+    </AppShell>
   );
 }
 

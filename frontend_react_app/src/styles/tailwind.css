@@ -1,0 +1,60 @@
+/* Tailwind base layers */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS variables for color tokens (light theme) */
+:root {
+  --background: 255 255 255; /* #ffffff */
+  --foreground: 15 23 42;    /* #0f172a */
+
+  --card: 255 255 255;
+  --card-foreground: 15 23 42;
+
+  --popover: 255 255 255;
+  --popover-foreground: 15 23 42;
+
+  --primary: 37 99 235;      /* #2563EB */
+  --primary-foreground: 255 255 255;
+
+  --secondary: 100 116 139;  /* #64748B */
+  --secondary-foreground: 255 255 255;
+
+  --accent: 34 197 94;       /* #22C55E */
+  --accent-foreground: 5 46 22;
+
+  --muted: 241 245 249;
+  --muted-foreground: 51 65 85;
+
+  --border: 226 232 240;
+  --input: 226 232 240;
+  --ring: 37 99 235;
+
+  --radius: 12px;
+}
+
+/* Dark mode tokens (optional) */
+.dark {
+  --background: 15 23 42;    /* #0f172a */
+  --foreground: 248 250 252; /* #f8fafc */
+  --card: 15 23 42;
+  --card-foreground: 248 250 252;
+  --popover: 15 23 42;
+  --popover-foreground: 248 250 252;
+
+  --muted: 30 41 59;
+  --muted-foreground: 203 213 225;
+
+  --border: 30 41 59;
+  --input: 30 41 59;
+}
+
+/* Base styles mapping tokens to Tailwind via rgb(var(--token)) */
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-[rgb(var(--background))] text-[rgb(var(--foreground))];
+  }
+}
