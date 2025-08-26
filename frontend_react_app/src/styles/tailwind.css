@@ -57,4 +57,28 @@
   body {
     @apply bg-[rgb(var(--background))] text-[rgb(var(--foreground))];
   }
+
+  /* radius tokens for rounded utilities that consume CSS var if used */
+  :root {
+    --radius-sm: calc(var(--radius) / 2);
+    --radius-md: var(--radius);
+    --radius-lg: calc(var(--radius) * 1.5);
+  }
+}
+
+/* Components/utilities */
+@layer components {
+  /* Provide a predictable container utility for layout regardless of plugin behavior */
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;  /* 16px */
+    padding-right: 1rem; /* 16px */
+    max-width: 80rem;    /* ~1280px */
+  }
+
+  .card {
+    @apply rounded-lg border border-[rgb(var(--border))] bg-[rgb(var(--card))] text-[rgb(var(--card-foreground))] shadow-sm;
+  }
 }
