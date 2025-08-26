@@ -1,5 +1,4 @@
 import React from "react";
-import { motion } from "framer-motion";
 
 // PUBLIC_INTERFACE
 export function InsightsPage() {
@@ -10,14 +9,7 @@ export function InsightsPage() {
   ];
 
   return (
-    <motion.div
-      key="insights"
-      initial={{ opacity: 0, y: 8 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -8 }}
-      transition={{ duration: 0.2 }}
-      className="grid gap-6 md:grid-cols-3"
-    >
+    <div className="grid gap-6 md:grid-cols-3">
       {cards.map((c, idx) => (
         <div key={idx} className="card p-6">
           <div className="text-sm text-slate-600">{c.label}</div>
@@ -35,6 +27,6 @@ export function InsightsPage() {
           <li>Iterate on calibration settings.</li>
         </ul>
       </div>
-    </motion.div>
+    </div>
   );
 }

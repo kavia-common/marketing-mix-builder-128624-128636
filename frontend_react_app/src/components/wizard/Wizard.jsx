@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { WizardProvider, useWizard } from "../../context/WizardContext";
 import { Stepper } from "./Stepper";
 import { WizardNavigation } from "./WizardNavigation";
@@ -47,13 +47,26 @@ function Content() {
   const { step } = useWizard();
 
   return (
-    <AnimatePresence mode="wait">
-      {step?.key === "upload" && <UploadPage key="upload" />}
-      {step?.key === "preview" && <PreviewPage key="preview" />}
-      {step?.key === "charts" && <ChartsPage key="charts" />}
-      {step?.key === "calibration" && <CalibrationPage key="calibration" />}
-      {step?.key === "events" && <EventsPage key="events" />}
-      {step?.key === "insights" && <InsightsPage key="insights" />}
+    <AnimatePresence mode="wait" initial={false}>
+      <motion.div
+        key={step?.key}
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, x: -20 }}
+        transition={{ 
+          type: "spring",
+          stiffness: 260,
+          damping: 20,
+          duration: 0.3
+        }}
+      >
+        {step?.key === "upload" && <UploadPage />}
+        {step?.key === "preview" && <PreviewPage />}
+        {step?.key === "charts" && <ChartsPage />}
+        {step?.key === "calibration" && <CalibrationPage />}
+        {step?.key === "events" && <EventsPage />}
+        {step?.key === "insights" && <InsightsPage />}
+      </motion.div>
     </AnimatePresence>
   );
 }

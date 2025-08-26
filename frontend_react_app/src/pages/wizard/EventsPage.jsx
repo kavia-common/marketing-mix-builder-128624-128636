@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
 import { Button } from "../../components/ui/button";
 
 // PUBLIC_INTERFACE
@@ -19,14 +18,7 @@ export function EventsPage() {
   };
 
   return (
-    <motion.div
-      key="events"
-      initial={{ opacity: 0, y: 8 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -8 }}
-      transition={{ duration: 0.2 }}
-      className="grid gap-6"
-    >
+    <div className="grid gap-6">
       <div className="card p-6">
         <h2 className="text-xl font-semibold">Events & Holidays</h2>
         <p className="text-slate-600 mt-2">
@@ -61,6 +53,6 @@ export function EventsPage() {
           ))}
         </ul>
       </div>
-    </motion.div>
+    </div>
   );
 }

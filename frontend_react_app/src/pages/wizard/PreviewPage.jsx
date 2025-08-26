@@ -1,5 +1,4 @@
 import React from "react";
-import { motion } from "framer-motion";
 
 // PUBLIC_INTERFACE
 export function PreviewPage() {
@@ -10,14 +9,7 @@ export function PreviewPage() {
   ];
 
   return (
-    <motion.div
-      key="preview"
-      initial={{ opacity: 0, y: 8 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -8 }}
-      transition={{ duration: 0.2 }}
-      className="card p-6"
-    >
+    <div className="card p-6">
       <h2 className="text-xl font-semibold">Preview & Mapping</h2>
       <p className="text-slate-600 mt-2">
         Quick look at your data. Adjust mappings if needed.
@@ -45,6 +37,6 @@ export function PreviewPage() {
           </tbody>
         </table>
       </div>
-    </motion.div>
+    </div>
   );
 }

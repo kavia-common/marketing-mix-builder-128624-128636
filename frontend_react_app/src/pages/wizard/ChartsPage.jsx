@@ -1,5 +1,4 @@
 import React from "react";
-import { motion } from "framer-motion";
 import {
   LineChart,
   Line,
@@ -36,14 +35,7 @@ const CustomTooltip = ({ active, payload, label }) => {
  */
 export function ChartsPage() {
   return (
-    <motion.div
-      key="charts"
-      initial={{ opacity: 0, y: 8 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -8 }}
-      transition={{ duration: 0.2 }}
-      className="grid gap-6"
-    >
+    <div className="grid gap-6">
       <div className="card p-6">
         <h3 className="text-lg font-semibold mb-2">Spend Over Time</h3>
         <p className="text-sm text-slate-600 mb-4">
@@ -138,6 +130,6 @@ export function ChartsPage() {
           </ResponsiveContainer>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
